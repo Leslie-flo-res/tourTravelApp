@@ -1,0 +1,87 @@
+<form [formGroup]="suggestForm" (ngSubmit)="(onSubmit)" >
+
+
+
+  <!--Name -->
+  <div class="mb-3">
+
+    <label>Name:</label>
+    <input type="text" class="form-control" formControlName="name" />
+
+    <div *ngIf="nameFormControl.touched && nameFormControl.errors?.['required']" class="alert alert-danger mb-3"
+      role="alert">
+      Please Enter Your Name
+    </div>
+
+    <div *ngIf="nameFormControl.touched && nameFormControl.errors?.['minlength']" class="alert alert-danger mb-3"
+      role="alert">
+      Your name should be more than 2 letters
+    </div>
+    <div *ngIf="nameFormControl.touched && nameFormControl.errors?.['prohibited']" class="alert alert-danger mb-3"
+      role="alert">
+      Err: Name cannot contain the word tourist
+    </div>
+  </div>
+
+
+  <!--age -->
+  <div class="mb-3">
+
+    <label>Age:</label>
+    <input type="number" class="form-control" formControlName="age" />
+  </div>
+
+
+
+
+
+
+  <!--EMAIL -->
+
+  <div class="mb-3">
+
+    <label class="form-label">Email address:</label>
+    <input type="email" class="form-control" placeholder="name@example.com" formControlName="email" />
+    <div *ngIf="emailFormControl.touched && emailFormControl.errors?.['required']" class="alert alert-danger mb-3"
+      role="alert">
+      Please Enter Email
+    </div>
+  </div>
+
+
+  <!-- 
+  -CITY SELECT 
+  <div class="mb-3"> Select a City:
+  <select  formControlName="city">
+   <option value="{{city}}"*ngFor="let cit of city" >{{city}}</option>
+
+  </select>
+</div>          -->
+
+
+  <!---idea Suggestion -->
+  <div class="mb-3">
+    <label>Idea:</label>
+    <textarea class="form-control" rows="5" formControlName="idea"></textarea>
+
+    <div *ngIf="ideaFormControl.touched && ideaFormControl.errors?.['prohibited']" class="alert alert-danger mb-3"
+      role="alert">
+      The idea description cannot contain the word "nothing" </div>
+
+    <div *ngIf="ideaFormControl.dirty && ideaFormControl.errors?.['minlength']" class="alert alert-danger mb-3"
+      role="alert">
+      The Field Name must be more than 99 characters
+    </div>
+
+  </div>
+
+  <!----submit button -->
+
+
+  <button type="submit" class="btn btn-success" [disabled]="suggestForm.invalid">
+    Submit
+  </button>
+
+
+
+</form>

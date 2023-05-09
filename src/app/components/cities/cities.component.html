@@ -1,0 +1,16 @@
+<!-- <ul *ngFor="let city of cities" >
+    {{city.name }}
+    <ul >
+        <li > {{city.attractionSites.join(" , ")}}</li>
+    </ul>
+</ul>
+
+ -->
+ <div class="card" style="width: 18rem;display: inline-flex;margin-right:20px; " *ngFor="let city of cities">
+    <img src=".\.\assets\image\hilo.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{city.name}}</h5>
+      <p>{{city.attractionSites}}</p>
+      <a href="#" class="btn btn-primary" >Weather Info </a>
+    </div>
+  </div>    

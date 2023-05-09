@@ -1,0 +1,37 @@
+<!-- <div >
+    <ul>
+        <li *ngFor="let weather of weatherData" class="removeBullet">
+    <a [routerlink]="['/weather', weather.name, weather.springN, weather.springM, weather.summerN,  weather.summerM, weather.winterN, weather.winterM ,weather.fallN, weather.fallM, weather.visitFrom, weather.visitTo]"
+    >{{weather.name}}</a>
+</li>
+</ul>  
+</div> -->
+
+<div *ngFor="let weather of weather">
+    <div class="card mb-3 d-grid col-md-10 col-lg-9 mx-auto">
+      <img src="" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ weather.name }}</h5>
+  
+        <a
+          [routerLink]="[
+            '/weather',
+            weather.name,
+            weather.springM,
+            weather.springN,
+            weather.summerM,
+            weather.summerN,
+            weather.fallM,
+            weather.fallN,
+            weather.winterM,
+            weather.winterN,
+            weather.visitFrom,
+            weather.visitTo,
+           
+          ]"
+          class="btn btn-dark"
+          >view weather history</a
+        >
+      </div>
+    </div>
+  </div>
